@@ -36,7 +36,6 @@ module Partitioned
             add_parent_table_rules(*partition_key_values)
           end
         rescue
-          puts 'table already exists...'
         end
       end
 
