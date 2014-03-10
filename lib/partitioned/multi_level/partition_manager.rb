@@ -26,7 +26,11 @@ module Partitioned
       # @param [*Array<Object>] partition_key_values all key values needed to create a partition
       # @return [optional]
       def create_new_partition(*partition_key_values)
-        create_partition_table(*partition_key_values)
+        begin
+          create_partition_table(*partition_key_values)
+        rescue
+          puts 'test'
+        end
         if is_leaf_partition?(*partition_key_values)
           add_partition_table_index(*partition_key_values)  
           add_references_to_partition_table(*partition_key_values)
