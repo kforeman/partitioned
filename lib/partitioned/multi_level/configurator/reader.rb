@@ -104,14 +104,10 @@ module Partitioned
         # The name of the child table without the schema name or name prefix.
         #
         def base_name(*partition_key_values)
-          puts 'base name'
-          p *partition_key_values
           parts = []
           partition_key_values.each_with_index do |value,index|
             parts << using_configurator(index).base_name(value)
           end
-          p parts
-          p parts.join('_')
           return parts.join('_')
         end
 
