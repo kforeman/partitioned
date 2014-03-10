@@ -54,7 +54,6 @@ module Partitioned
       #
       def create_new_partition_tables(enumerable)
         enumerable.each do |partition_key_values|
-          p partition_key_values
           create_new_partition(*partition_key_values)
         end
       end
