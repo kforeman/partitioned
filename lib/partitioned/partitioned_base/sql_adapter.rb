@@ -158,7 +158,7 @@ module Partitioned
       # Create a single child table.
       #
       def create_partition_table(*partition_key_values)
-        puts *partition_key_values
+        p *partition_key_values
         create_table(configurator.table_name(*partition_key_values), {
                        :id => false,
                        :options => "INHERITS (#{configurator.parent_table_name(*partition_key_values)})"
